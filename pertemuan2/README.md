@@ -1,4 +1,4 @@
-# Tugas 1 Praktikum PBW
+# Tugas 2 Praktikum PBW
 **Nama:** Nabila Khoirun Nisaa'  
 **NPM:** 4524210116
 
