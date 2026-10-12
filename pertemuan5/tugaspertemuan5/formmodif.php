@@ -61,7 +61,7 @@
 
     <h2>Form Data Mahasiswa</h2>
 
-    <form action="../simpan.php" method="post">
+    <form action="simpanmodif.php" method="post">
 
         <label>NIM</label>
         <input type="text" name="nim" required>
@@ -71,6 +71,9 @@
 
         <label>Email</label>
         <input type="email" name="email" required>
+
+        <label>No. HP</label>
+        <input type="text" name="no_hp" minlength="10" maxlength="15" required>
 
         <label>Prodi</label>
         <input type="text" name="prodi" required>
