@@ -1,69 +1,89 @@
-# CodeIgniter 4 Application Starter
+# LAPORAN PRAKTIKUM
 
-## What is CodeIgniter?
+## Modul Mahasiswa Menggunakan CodeIgniter 4
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+**Nama:** Nabila Khoirun Nisaa'  
+**NIM:** 4524210116  
+**Program Studi:** Teknik Informatika  
+**Universitas:** Universitas Pancasila
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+## 1. Pendahuluan
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+Pada praktikum ini, saya membuat modul mahasiswa sederhana menggunakan framework CodeIgniter 4. Modul ini dibuat untuk mempelajari cara mengelola data mahasiswa menggunakan konsep CRUD (Create, Read, Update, Delete).
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+Melalui modul ini, pengguna dapat melihat data mahasiswa, menambahkan data baru, mengubah data yang sudah ada, dan menghapus data mahasiswa. Saya juga menerapkan validasi input agar data yang dimasukkan sesuai dengan ketentuan yang sudah ditentukan.
 
-## Installation & updates
+## 2. Tujuan Praktikum
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+Tujuan dari praktikum ini adalah:
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+1. Memahami cara kerja CRUD pada CodeIgniter 4.
+2. Mempelajari penggunaan Model dan Controller dalam mengelola data mahasiswa.
+3. Menerapkan validasi input menggunakan Validation Rules pada CodeIgniter 4.
+4. Menampilkan pesan kesalahan ketika data yang dimasukkan tidak sesuai.
+5. Menghubungkan aplikasi dengan database MySQL.
 
-## Setup
+## 3. Implementasi Modul
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+Pada praktikum ini, saya membuat modul mahasiswa menggunakan CodeIgniter 4 dengan database MySQL bernama `akademik`. Data mahasiswa disimpan dalam tabel `mahasiswa` yang memiliki beberapa field, yaitu NIM, nama, email, program studi, dan IPK.
 
-## Important Change with index.php
+Modul ini memiliki beberapa fitur yang dapat digunakan untuk mengelola data mahasiswa, yaitu:
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+- **Daftar Mahasiswa (Read)**, untuk melihat data mahasiswa yang sudah tersimpan di database.
+- **Tambah Mahasiswa (Create)**, untuk menambahkan data mahasiswa baru melalui form.
+- **Edit Mahasiswa (Update)**, untuk mengubah data mahasiswa yang sudah tersimpan.
+- **Hapus Mahasiswa (Delete)**, untuk menghapus data mahasiswa dari database.
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+## 4. Validasi Input
 
-**Please** read the user guide for a better explanation of how CI4 works!
+Pada modul mahasiswa ini, saya menerapkan validasi input pada form tambah dan edit mahasiswa. Validasi digunakan untuk memastikan data yang dimasukkan sudah sesuai dengan ketentuan sebelum disimpan ke database.
 
-## Repository Management
+Berikut adalah ketentuan validasi yang digunakan:
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+| Field | Ketentuan |
+|---|---|
+| NIM | Wajib diisi, 8–15 karakter, dan tidak boleh duplikat |
+| Nama | Wajib diisi dan minimal 3 karakter |
+| Email | Wajib diisi dan harus menggunakan format email yang valid |
+| Program Studi | Wajib diisi |
+| IPK | Wajib diisi dengan nilai antara 0 sampai 4 |
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+Jika pengguna memasukkan data yang tidak sesuai, sistem akan menampilkan pesan kesalahan pada halaman form. Dengan begitu, pengguna dapat mengetahui bagian mana yang perlu diperbaiki. Data yang tidak valid tidak akan disimpan ke dalam database.
 
-## Server Requirements
+## 5. Hasil Implementasi
 
-PHP version 8.2 or higher is required, with the following extensions installed:
+Setelah modul mahasiswa selesai dibuat, fitur CRUD dapat digunakan untuk mengelola data mahasiswa. Pengguna dapat menambahkan data baru, melihat data yang sudah tersimpan, mengubah data, dan menghapus data mahasiswa.
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+Validasi input juga dapat berjalan sesuai dengan aturan yang telah dibuat. Ketika terdapat data yang tidak sesuai, sistem akan menampilkan pesan kesalahan sehingga pengguna dapat memperbaiki data tersebut sebelum menyimpannya.
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - The end of life date for PHP 8.1 was December 31, 2025.
-> - If you are still using below PHP 8.2, you should upgrade immediately.
-> - The end of life date for PHP 8.2 will be December 31, 2026.
+## 6. Dokumentasi Screenshot
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+### 6.1 Halaman Daftar Mahasiswa
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+Halaman daftar mahasiswa digunakan untuk melihat data mahasiswa yang sudah tersimpan di database. Pada halaman ini, pengguna juga dapat menambahkan data mahasiswa baru serta melakukan edit dan hapus data.
+
+![Halaman Daftar Mahasiswa](screenshots/daftar-mahasiswa.png)
+
+### 6.2 Halaman Tambah Mahasiswa
+
+Halaman tambah mahasiswa digunakan untuk memasukkan data mahasiswa baru. Pada halaman ini, pengguna mengisi NIM, nama, email, program studi, dan IPK sesuai dengan data yang ingin ditambahkan.
+
+![Halaman Tambah Mahasiswa](screenshots/tambah-mahasiswa.png)
+
+### 6.3 Validasi Input
+
+Pada bagian ini, saya melakukan pengujian validasi dengan memasukkan data yang tidak sesuai dengan ketentuan. Setelah tombol Simpan ditekan, sistem menampilkan pesan kesalahan pada form agar pengguna dapat mengetahui data yang perlu diperbaiki.
+
+![Validasi Input](screenshots/validasi-mahasiswa.png)
+
+### 6.4 Halaman Edit Mahasiswa
+
+Halaman edit mahasiswa digunakan untuk mengubah data mahasiswa yang sudah tersimpan di database. Ketika halaman edit dibuka, form akan menampilkan data mahasiswa sebelumnya sehingga pengguna dapat langsung mengubah informasi yang diperlukan.
+
+![Halaman Edit Mahasiswa](screenshots/edit-mahasiswa.png)
+
+## 7. Kesimpulan
+
+Berdasarkan praktikum yang telah dilakukan, saya berhasil membuat modul mahasiswa sederhana menggunakan CodeIgniter 4. Modul ini memiliki fitur CRUD yang dapat digunakan untuk menambah, menampilkan, mengubah, dan menghapus data mahasiswa.
+
+Saya juga mempelajari cara menerapkan validasi input agar data yang dimasukkan sesuai dengan ketentuan. Melalui praktikum ini, saya menjadi lebih memahami penggunaan Model, Controller, View, routing, database, dan Validation Rules dalam pembuatan aplikasi web menggunakan CodeIgniter 4.

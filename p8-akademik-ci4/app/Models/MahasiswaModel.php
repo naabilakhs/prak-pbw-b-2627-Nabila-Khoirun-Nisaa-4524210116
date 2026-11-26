@@ -16,4 +16,6 @@ class MahasiswaModel extends Model
         'prodi',
         'ipk'
     ];
+
+    protected $useTimestamps = false;
 }
